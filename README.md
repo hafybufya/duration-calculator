@@ -31,4 +31,5 @@ pip install numpy
 ```
 
 ## 📄 License
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](https://github.com/hafybufya/duration-calculator/blob/main/LICENSE).
+
