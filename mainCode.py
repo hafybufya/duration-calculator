@@ -9,8 +9,8 @@ import numpy as np
 #  -> make the code flexible if prompts or values changed changed
 # ---------------------------------------------------------------------
 
-prompts_enter_date= "Check how many days it's been since a date. Use the format: YYYY-MM-DD. "
-error_message = "Incorrect format. Insert a date in format YYYY-MM-DD"
+prompts_enter_date= "Check how many days it's been since a date. Use the format: YYYY-MM-DD or YYYY-MM. "
+error_message = "Incorrect format. Insert a date in format YYYY-MM-DD or YYYY-MM"
 error_future_date = "Error. Data inputted cannot be a future date. Enter a past date"
 # ---------------------------------------------------------------------
 # FUNCTION: Read CSV data into Dataframe
@@ -48,7 +48,10 @@ def date_time_calc():
             date_inputted = np.datetime64(user_input)
         except ValueError:
             # Users cant input values which aren't in the format YYYY-MM-DD 
-            raise ValueError(error_message)                   
+            raise ValueError(error_message)        
+        if user_input.isdigit():
+            # Users cant input integers 
+            raise ValueError(error_message)            
         if date_inputted > today:
             # Users can't input a value large than todays date
             raise ValueError(error_future_date)
